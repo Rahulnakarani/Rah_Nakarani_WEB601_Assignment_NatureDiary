@@ -1,0 +1,9 @@
+<div>
+    <h1>Content Card</h1>
+    <div>
+        @for(content of contentList.content; track content.id; let i = $index){
+            <div [innerHTML]="contentList.HTMLOutput(i)">
+            </div>
+        }
+    </div>
+  </div>
