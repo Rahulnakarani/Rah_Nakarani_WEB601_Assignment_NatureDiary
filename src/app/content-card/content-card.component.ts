@@ -1,48 +1,20 @@
-import { Component } from '@angular/core';
-import { ContentList } from '../helper-files/content-list';
+import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
+
 
 @Component({
   selector: 'app-content-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './content-card.component.html',
   styleUrl: './content-card.component.scss'
 })
 export class ContentCardComponent {
-  contentList: ContentList;
+  
+  @Input() content: any;
 
-  constructor() {
-    this.contentList = new ContentList();
-
-   
-    this.contentList.add({
-      id: 1,
-      title: 'Morning Walk in the Woods',
-      description: 'Capturing the beauty of sunrise through the trees, the songs of birds, and the fresh scent of nature during a morning walk.',
-      creator: 'NatureEnthusiast123',
-      imgURL: 'morning-walk.jpg',
-      type: 'Exploration',
-      tags:  ["Morning", "Nature", "Hiking"],
-    });
-
-    this.contentList.add({
-      id: 2,
-      title: 'Botanical Garden Adventure',
-      description: 'Exploring a variety of plant species, vibrant flowers, and the peaceful ambiance of a local botanical garden.',
-      creator: 'FloralExplorer',
-      imgURL: 'boatnical-garden.jpg',
-      type: 'Botany',
-      tags: ["Flowers", "Plants", "Botanical Garden"],
-    });
-
-    this.contentList.add({
-      id: 3,
-      title: 'Riverside Reflections',
-      description: 'Observing the gentle flow of a river, the rustling of leaves, and reflections of the surrounding greenery on the surface of water.',
-      creator: 'RiverWatcher',
-      imgURL: 'Rivers.jpg',
-      type: 'Nature Reflection',
-      tags: ["River", "Reflection", "Nature Observations"]
-    });
+  onCardClick(content: any): void {
+    console.log(`Card Clicked - ID: ${content.id} and Title: ${content.title}`);
   }
 }

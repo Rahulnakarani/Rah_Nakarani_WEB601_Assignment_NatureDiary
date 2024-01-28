@@ -1,9 +1,11 @@
-<div>
-    <h1>Content Card</h1>
-    <div>
-        @for(content of contentList.content; track content.id; let i = $index){
-            <div [innerHTML]="contentList.HTMLOutput(i)">
-            </div>
-        }
-    </div>
-  </div>
+<div class="content-card">
+    <img src="{{content.imgURL}}" alt="{{content.title}}" class="imgs" (click)="onCardClick(content)">
+    <h3 style="text-align: center;">{{content.title}}</h3>
+    <p><strong>Description: </strong>{{content.description}}</p>
+    <p><strong>Creator: </strong>{{content.creator}}</p>
+    <p><strong>Type: </strong> {{content.type}}</p>
+    <strong>Tags:</strong>
+    <ul *ngFor="let tag of content.tags">
+        <li>{{tag}}</li>
+    </ul>
+</div>
