@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Content } from '../helper-files/content-interface';
 import { ContentCardComponent } from "../content-card/content-card.component";
+import { FilterPipePipe } from "../filter-pipe.pipe";
 
 @Component({
     selector: 'app-content-list',
     standalone: true,
     templateUrl: './content-list.component.html',
     styleUrl: './content-list.component.scss',
-    imports: [CommonModule,ContentCardComponent]
+    imports: [CommonModule, ContentCardComponent, FilterPipePipe, FormsModule]
 })
 
 export class ContentListComponent {
@@ -39,7 +41,7 @@ export class ContentListComponent {
       description: 'Observing the gentle flow of a river, the rustling of leaves, and reflections of the surrounding greenery on the surface of water.',
       creator: 'RiverWatcher',
       imgURL: 'https://www.shutterstock.com/image-photo/riverside-sunset-reflection-casted-water-260nw-2333631953.jpg',
-      type: 'Nature Reflection',
+      type: 'Botany',
       tags: ["River", "Reflection", "Nature Observations"]
     },
     {
@@ -48,7 +50,7 @@ export class ContentListComponent {
       description: 'Witnessing the breathtaking colors of the sky as the sun sets behind the majestic mountains.',
       creator: 'MountainExplorer456',
       imgURL: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/sunset-over-mountains-bekare-creative.jpg',
-      type: 'Scenic View',
+      type: 'ScenicView',
       tags: ["Sunset", "Mountains", "Nature"],
     },
     {
@@ -57,7 +59,7 @@ export class ContentListComponent {
       description: 'Diving into the mesmerizing world beneath the waves, filled with colorful coral reefs and marine life.',
       creator: 'OceanExplorer101',
       imgURL: 'https://themiamiguide.com/wp-content/uploads/unnamed-3-1280x640.jpg',
-      type: 'Underwater Exploration',
+      type: 'Exploration',
       tags: ["Underwater", "Ocean", "Diving"],
     },
     {
@@ -66,9 +68,53 @@ export class ContentListComponent {
       description: 'Embracing the beauty of autumn foliage during a serene hike in the mountains.',
       creator: 'FallFoliageAdmirer555',
       imgURL: 'https://visitadirondacks.com/sites/default/files/styles/960x540/public/2020-02/fall-hiking_1.jpeg?itok=PEEilnb6',
-      type: 'Hiking',
+      type: ' ',
       tags: ["Autumn", "Mountains", "Hiking"],
+    },
+    {
+      id: 7,
+      title: 'Sunrise at the Beach',
+      description: 'Witnessing the breathtaking sunrise over the calm ocean waves and sandy shores.',
+      creator: 'BeachExplorer123',
+      imgURL: 'https://images.unsplash.com/photo-1563738068154-8d2e9f19ed62?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBzdW5yaXNlfGVufDB8fDB8fHww',
+      type: 'ScenicView',
+      tags: ["Sunrise", "Beach", "Nature"],
+    },
+    {
+      id: 8,
+      title: 'Majestic Waterfall',
+      description: 'Discovering the power and beauty of a majestic waterfall hidden deep in the forest.',
+      creator: 'WaterfallSeeker789',
+      imgURL: 'https://good-nature-blog-uploads.s3.amazonaws.com/uploads/2023/01/05219268-AA1B-49EC-B2BE-5F9E4719F145.jpeg',
+      type: 'Botany',
+      tags: ["Waterfall", "Forest", "Nature"],
+    },
+    {
+      id: 9,
+      title: 'Wildlife Safari Adventure',
+      description: 'Embarking on an exciting safari adventure, capturing the diverse wildlife in their natural habitat.',
+      creator: 'SafariExplorer456',
+      imgURL: 'https://tigerencounter.com/wp-content/uploads/2019/09/Chitwan-Wildlife-Safari-1.jpg',
+      type: ' ',
+      tags: ["Wildlife", "Safari", "Nature"],
     }]
   }  
+
+  searchTitle: string = '';
+  searchMsg: string = '';
+  searchClr: string = '';
+
+  searchCard(): void{
+    const foundContent = this.contentArray.find(content => content.title === this.searchTitle); 
+
+    if (foundContent) {
+      this.searchMsg = `Content with title "${this.searchTitle}" exists.`;
+      this.searchClr = 'green';
+    }
+    else {
+      this.searchMsg = `Content with title "${this.searchTitle}" does not exist.`;
+      this.searchClr = 'red';
+    }
+  }
 }
 
