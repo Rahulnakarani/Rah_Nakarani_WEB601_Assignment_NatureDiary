@@ -100,21 +100,21 @@ export class ContentListComponent {
     }]
   }  
 
-  searchTitle: string = '';
-  searchMsg: string = '';
-  searchClr: string = '';
+    searchTitle: string = '';
+    searchMsg: string = '';
+    searchClr: string = '';
 
-  searchCard(): void{
-    const foundContent = this.contentArray.find(content => content.title === this.searchTitle); 
+    searchCard(): void{
+      const foundContent = this.contentArray.find(content => content.title.toLowerCase() === this.searchTitle); 
 
-    if (foundContent) {
-      this.searchMsg = `Content with title "${this.searchTitle}" exists.`;
-      this.searchClr = 'green';
+      if (foundContent) {
+        this.searchMsg = `Title "${this.searchTitle}" exists in Content.`;
+        this.searchClr = 'green';
+      }
+      else {
+        this.searchMsg = `Title "${this.searchTitle}" doesn't exist in Content.`;
+        this.searchClr = 'red';
+      }
     }
-    else {
-      this.searchMsg = `Content with title "${this.searchTitle}" does not exist.`;
-      this.searchClr = 'red';
-    }
-  }
 }
 
