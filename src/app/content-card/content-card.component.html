@@ -3,7 +3,7 @@
     <img *ngIf="content.imgURL; else defaultImg" src="{{content.imgURL}}" alt="{{content.title}}" class="imgs" (click)="onCardClick(content)">
     <ng-template #defaultImg>
         <img src="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg" alt="Default Image" class="imgs" (click)="onCardClick(content)">
-      </ng-template>
+    </ng-template>
     <h3 style="text-align: center;" >{{content.title}}</h3>
     <p><strong>Description: </strong>{{content.description}}</p>
     <p><strong>Creator: </strong>{{content.creator}}</p>
