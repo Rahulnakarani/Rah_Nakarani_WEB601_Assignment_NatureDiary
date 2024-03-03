@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Content } from '../helper-files/content-interface';
 import { ContentCardComponent } from "../content-card/content-card.component";
 import { FilterPipePipe } from "../filter-pipe.pipe";
+import { CreateContentComponent } from "../create-content/create-content.component";
 
 @Component({
     selector: 'app-content-list',
     standalone: true,
     templateUrl: './content-list.component.html',
     styleUrl: './content-list.component.scss',
-    imports: [CommonModule, ContentCardComponent, FilterPipePipe, FormsModule]
+    imports: [CommonModule, ContentCardComponent, FilterPipePipe, FormsModule, CreateContentComponent]
 })
 
 export class ContentListComponent {
@@ -117,5 +118,29 @@ export class ContentListComponent {
         this.searchClr = 'red';
       }
     }
+    onContentAdded(newContent: any) {
+      // Handle the addition of new content
+      console.log(newContent.creator);
+      const contentToAdd = { ...newContent, tags: Array.isArray(newContent.tags) ? newContent.tags : [] };
+      this.contentArray.push(contentToAdd);
+    }
+
+    // onContentAdded(newContent: any) {
+    //   // Handle the addition of new content using Promise
+    //   this.addContentWithPromise(newContent)
+    //     .then(() => console.log('Content added successfully'))
+    //     .catch(() => console.error('Failed to add content'));
+    // }
+  
+    // private addContentWithPromise(newContent: any): Promise<void> {
+    //   return new Promise<void>((resolve, reject) => {
+    //     // Simulate additional asynchronous operations if needed
+    //     // For simplicity, resolve immediately (replace with your actual logic)
+    //     resolve();
+  
+    //     // Add new content to the array
+    //     this.contentArray.push(newContent);
+    //   });
+    // }
 }
 

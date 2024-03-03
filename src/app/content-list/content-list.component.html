@@ -1,15 +1,20 @@
-<!-- 
-<div *ngFor="let content of contentArray.slice(0, 5); let first = first" class="content-card-container" [ngClass]="{'first': first}" >
+
+
+<br>
+<br>
+<app-create-content (contentAdded)="onContentAdded($event)"></app-create-content>
+
+<div *ngFor="let content of contentArray; let first = first" class="content-card-container" [ngClass]="{'first': first}" >
     <app-content-card [content]="content"></app-content-card>
     
-</div>   -->
+</div>  
 <br>
 <br>
 <input type="text" [(ngModel)]="searchTitle" placeholder="Enter type here...">
 <button (click)="searchCard()">Submit</button>
 <p [style.color]="searchClr">{{searchMsg}}</p>
 
-<h2>Content with no type</h2>
+<!-- <h2>Content with no type</h2>
 <app-content-card *ngFor="let item of (contentArray | filterPipe: ' ')" [content]="item"></app-content-card>
 
 <h2>Content with type 'Exploration'</h2>
@@ -20,4 +25,4 @@
 
 <h2>Content with type 'ScenicView'</h2>
 <app-content-card *ngFor="let item of (contentArray | filterPipe: 'ScenicView')" class="type-scenicView" [content]="item"></app-content-card>
-    
+     -->
