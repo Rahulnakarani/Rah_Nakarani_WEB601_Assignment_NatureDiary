@@ -118,29 +118,10 @@ export class ContentListComponent {
         this.searchClr = 'red';
       }
     }
-    onContentAdded(newContent: any) {
-      // Handle the addition of new content
+    onContentAdded(newContent: Content) {
+      
       console.log(newContent.creator);
-      const contentToAdd = { ...newContent, tags: Array.isArray(newContent.tags) ? newContent.tags : [] };
-      this.contentArray.push(contentToAdd);
+      this.contentArray.push(newContent);
     }
-
-    // onContentAdded(newContent: any) {
-    //   // Handle the addition of new content using Promise
-    //   this.addContentWithPromise(newContent)
-    //     .then(() => console.log('Content added successfully'))
-    //     .catch(() => console.error('Failed to add content'));
-    // }
-  
-    // private addContentWithPromise(newContent: any): Promise<void> {
-    //   return new Promise<void>((resolve, reject) => {
-    //     // Simulate additional asynchronous operations if needed
-    //     // For simplicity, resolve immediately (replace with your actual logic)
-    //     resolve();
-  
-    //     // Add new content to the array
-    //     this.contentArray.push(newContent);
-    //   });
-    // }
 }
 
