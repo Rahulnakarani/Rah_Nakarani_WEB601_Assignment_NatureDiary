@@ -9,6 +9,9 @@
 <button (click)="searchCard()">Submit</button>
 <p [style.color]="searchClr">{{searchMsg}}</p>
 
+
+<app-content-card [content]=""></app-content-card>
+
 <h2>Content with no type</h2>
 <app-content-card *ngFor="let item of (contentArray | filterPipe: ' ')" [content]="item"></app-content-card>
 
