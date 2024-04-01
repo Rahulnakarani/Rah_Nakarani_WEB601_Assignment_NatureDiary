@@ -32,8 +32,7 @@ export class ModifyContentComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewDialogComponent, {
-      width: '50%',
-      data: { }
+      width: '50%'
     });
 
     dialogRef.afterClosed().subscribe(result => {

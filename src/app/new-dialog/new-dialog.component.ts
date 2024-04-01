@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
 import { FormsModule } from '@angular/forms';
+import { NatureServiceService } from '../nature-service.service';
 
 
 @Component({
@@ -26,9 +27,9 @@ export class NewDialogComponent {
   };
   tagsString: string = '';
 
+  @Output() contentAdded = new EventEmitter<Content>();
 
-
-  constructor(public dialogRef: MatDialogRef<NewDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(private natureService: NatureServiceService, public dialogRef: MatDialogRef<NewDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   onCancelClick(): void {
     this.dialogRef.close();
@@ -36,9 +37,12 @@ export class NewDialogComponent {
   }
 
   onAddClick(): void {
-    // Handle adding content
-    this.dialogRef.close(this.newContent);
-    console.log('hello' + this.newContent);
+    this.newContent.tags = this.tagsString.split(',');
+
+    this.natureService.addContent(this.newContent).subscribe((newContentWithId) => {
+      this.contentAdded.emit(newContentWithId); 
+    });
+    this.dialogRef.close();
     this.clearFields();
   }
 
