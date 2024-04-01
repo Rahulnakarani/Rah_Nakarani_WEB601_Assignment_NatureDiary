@@ -10,6 +10,10 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { ContentCardComponent } from "./content-card/content-card.component";
 import { ContentListComponent } from "./content-list/content-list.component";
 import { ContentMessageComponent } from "./content-message/content-message.component";
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -26,7 +30,11 @@ import { ContentMessageComponent } from "./content-message/content-message.compo
         HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
         ContentCardComponent,
         ContentListComponent,
-        ContentMessageComponent
+        ContentMessageComponent,
+        MatButtonModule,
+        MatInputModule,
+        BrowserAnimationsModule,
+        MatCardModule
     ]
 })
 export class AppModule { }
