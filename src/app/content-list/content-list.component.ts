@@ -22,7 +22,7 @@ export class ContentListComponent implements OnInit {
   constructor(private natureService: NatureServiceService, private messageService: MessagesServiceService) {  }  
 
   onContentAdded(newContent: Content) {
-    this.contentArray.push(newContent);
+    //this.contentArray.push(newContent);
     this.messageService.sendMessage(`Content '${newContent.title}' added successfully!`);
   }
   ngOnInit() {

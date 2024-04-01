@@ -5,15 +5,17 @@
 </div>   -->
 <app-modify-content (contentAdded)="onContentAdded($event)"></app-modify-content>
 
+<br>
+<br>
 <div *ngFor="let content of contentArray; let first = first" class="content-card-container" [ngClass]="{'first': first}" >
     <app-content-card [content]="content"></app-content-card>
     
 </div>
 <br>
 <br>
-<input type="text" [(ngModel)]="searchTitle" placeholder="Enter type here...">
+<!-- <input type="text" [(ngModel)]="searchTitle" placeholder="Enter type here...">
 <button (click)="searchCard()">Submit</button>
-<p [style.color]="searchClr">{{searchMsg}}</p>
+<p [style.color]="searchClr">{{searchMsg}}</p> -->
 
 
 
