@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterOutlet } from '@angular/router';
 
 
 
@@ -35,7 +37,9 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
         MatButtonModule,
         MatInputModule,
         BrowserAnimationsModule,
-        MatCardModule
+        MatCardModule,
+        RouterOutlet,
+        AppRoutingModule
     ]
 })
 export class AppModule { }

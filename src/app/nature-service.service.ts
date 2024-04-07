@@ -23,9 +23,8 @@ export class NatureServiceService {
     return of(contentArray);
   }
 
-  getContentItemById(id: number): Observable<any> {
-    const contentItem = contentArray.find(item => item.id === id);
-    this.messagesService.sendMessage(`Content Item at id: ${id}`);
-    return of(contentItem);
+  getContentItemById(id: number): Observable<Content> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Content>(url);
   }
 }

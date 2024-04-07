@@ -32,7 +32,6 @@ export class ContentListComponent implements OnInit {
   loadContentArray() {
     this.natureService.getContentArray().subscribe((data) => {
       this.contentArray = data;
-      console.log('Content array loaded!');
     });
   }
 

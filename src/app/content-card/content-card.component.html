@@ -11,12 +11,14 @@
     </mat-card-header>
     
     <mat-card-content>
-      <p>{{ content.description }}</p>
+      <a [routerLink]="['/content', content.id]" routerLinkActive="active">View Details</a>
+       <!-- <p>{{ content.description }}</p>
       <p appHoverAffect [hoverStyle]="'textDecoration'"><strong>Type: </strong> {{content.type}}</p>
         <strong>Tags:</strong>
         <ul appHoverAffect [hoverStyle]="'fontWeight'" *ngFor="let tag of content.tags">
             <li>{{tag}}</li>
-        </ul>
+        </ul> -->
+        
     </mat-card-content>
   </mat-card>
 </div>

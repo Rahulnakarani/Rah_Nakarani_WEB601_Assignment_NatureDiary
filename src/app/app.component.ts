@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NatureServiceService } from './nature-service.service';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -13,16 +14,16 @@ export class AppComponent implements OnInit {
 
   constructor(private natureService: NatureServiceService) {}
   ngOnInit(): void {
-    this.loadSingleContentItem();
+    // this.loadSingleContentItem();
   }
 
-  loadSingleContentItem() {
-    const idOfContentItemToLoad = 1; 
-    this.natureService.getContentItemById(idOfContentItemToLoad).subscribe((data) => {
-      this.singleContentItem = data;
-      console.log(`Content Item at id: ${idOfContentItemToLoad}`);
-    });
-  }
+  // loadSingleContentItem() {
+  //   const idOfContentItemToLoad = 1; 
+  //   this.natureService.getContentItemById(idOfContentItemToLoad).subscribe((data) => {
+  //     this.singleContentItem = data;
+  //     console.log(`Content Item at id: ${idOfContentItemToLoad}`);
+  //   });
+  // }
 
   
 }
