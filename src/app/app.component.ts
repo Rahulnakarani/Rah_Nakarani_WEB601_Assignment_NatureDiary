@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NatureServiceService } from './nature-service.service';
-import { RouterOutlet } from '@angular/router';
 
 
 @Component({

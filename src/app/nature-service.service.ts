@@ -25,6 +25,7 @@ export class NatureServiceService {
 
   getContentItemById(id: number): Observable<Content> {
     const url = `${this.apiUrl}/${id}`;
+    this.messagesService.sendMessage(`Id ${id} retrived` );
     return this.http.get<Content>(url);
   }
 }

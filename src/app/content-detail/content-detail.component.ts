@@ -4,6 +4,7 @@ import { NatureServiceService } from '../nature-service.service';
 import { CommonModule } from '@angular/common';
 import { Content } from '../helper-files/content-interface';
 import { MatButtonModule } from '@angular/material/button';
+import { MessagesServiceService } from '../messages-service.service';
 
 @Component({
   selector: 'app-content-detail',
@@ -15,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class ContentDetailComponent {
   id! : number;
   content!: Content;
-  constructor(private natureService: NatureServiceService, private route: ActivatedRoute, private router: Router,) {}
+  constructor(private natureService: NatureServiceService, private route: ActivatedRoute, private router: Router,private messageService: MessagesServiceService) {}
 
   ngOnInit() : void {
     this.route.paramMap.subscribe(params => {
